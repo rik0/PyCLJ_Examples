@@ -3,7 +3,7 @@ import clj
 py_list = ['a', 'b', 'c']
 my_list = clj.ImmutableList(py_list)
 
-print my_list.peek(), type(my_list.peek()), type(py_list[0])
+print my_list.peek()
 print my_list.pop()
 print my_list.count()
 print my_list.empty()
