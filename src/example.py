@@ -19,5 +19,4 @@ class SpamAndEggs(object):
     def __repr__(self):
         return 'Spam and %s eggs.' % self.eggs
 
-
 spam_and_eggs = SpamAndEggs(2)
