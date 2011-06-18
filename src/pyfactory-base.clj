@@ -7,11 +7,11 @@
 
 
 (defn make-factory
-  [module klass]
+  [modulename klassname]
   (let [interpreter (PythonInterpreter.)
-        import-command (str-join " " ["from" module "import" klass])]
+        import-command (str-join " " ["from" modulename "import" klassname])]
     (.exec interpreter import-command)
-    (.get interpreter klass)))
+    (.get interpreter klassname)))
 
 
 (def spam-and-eggs
