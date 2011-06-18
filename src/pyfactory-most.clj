@@ -30,8 +30,6 @@
     `(def ~(symbol klass-name)
       (make-factory ~(str module-name) ~(str klass-name) ~jtype))))
 
-;(println (macroexpand-1  '(pyclass example.PrintSomething java.awt.event.ActionListener)))
-
 (pyclass example.PrintSomething java.awt.event.ActionListener)
 
 (def evt-printer (PrintSomething))
