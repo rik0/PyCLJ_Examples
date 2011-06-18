@@ -24,3 +24,5 @@
 
 (println inst)
 (println (.invoke inst "hasSpam"))
+
+

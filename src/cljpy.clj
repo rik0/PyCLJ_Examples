@@ -3,12 +3,6 @@
   (:import
     [org.python.util PythonInterpreter]))
 
-
-(defn load-python-factory [module klass]
-  (let [interpreter (PythonInterpreter.)
-        import-command (str-join " " ["from" module "import" klass])]
-    (.exec interpreter import-command)))
-
 (defn clojurize [pyobj]
   (try
     (.__tojava__ pyobj)

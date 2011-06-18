@@ -20,3 +20,9 @@ class SpamAndEggs(object):
         return 'Spam and %s eggs.' % self.eggs
 
 spam_and_eggs = SpamAndEggs(2)
+
+import java.awt.event
+
+class PrintSomething(java.awt.event.ActionListener):
+    def actionPerformed(self, evt):
+        print evt
