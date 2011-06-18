@@ -20,13 +20,18 @@
             (map #(Py/java2py %) args)))
           interface)))))
 
-(defmacro pyclass [qualified-class jtype]
+(defn split-module-and-class [qualified-class]
   (let [qualified-class-name (str qualified-class)
         [last-dot-position _] (find-first (fn [[_ e]] (= e \.))
                                           (indexed qualified-class-name))
-        [module-name-seq dotted-klass-name-seq] (split-at last-dot-position qualified-class-name)
+        [module-name-seq dotted-klass-name-seq]
+            (split-at last-dot-position qualified-class-name)
         klass-name (str-join "" (rest dotted-klass-name-seq))
         module-name (str-join "" module-name-seq)]
+    [klass-name module-name]))
+
+(defmacro pyclass [qualified-class jtype]
+  (let [[klass-name module-name] (split-module-and-class qualified-class)]
     `(def ~(symbol klass-name)
       (make-factory ~(str module-name) ~(str klass-name) ~jtype))))
 
